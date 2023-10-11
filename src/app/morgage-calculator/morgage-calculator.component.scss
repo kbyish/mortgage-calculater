@@ -1,0 +1,15 @@
+.downPaymentPercentageCss{
+
+    width: 5rem;
+}
+
+.downPaymentPercentageContainer{
+    padding-right: 20px;
+}
+
+.downPaymentPercentageContainer:after {
+    content: "\0025";
+    margin-left: -25px;
+    margin-right: 25px;
+    padding-left: 6px;
+}
