@@ -1,14 +1,38 @@
 <p>morgage-calculator works!</p>
 
 <form [formGroup]="mortgageCalculatorForm">
-
-    <label for="first-name">Home price: </label>
-    <input id="loanAmount" type="text" formControlName="loanAmmount">
-  
-    <label for="last-name">Down payment: </label>
-    <input id="last-name" type="text" formControlName="downPaymentPercentage">
-    <input id="last-name" type="text" formControlName="downPaymentAmount">
+  <div class="flex-container">
+    <label for="loanAmount" class="flex-header ">Home price: </label>
 
 
-  
-  </form>
+    <input id="loanAmount" type="text" formControlName="loanAmmount" class="flex-element ">
+    <span *ngIf="mortgageCalculatorForm.controls.loanAmmount.valid" class="alert alert-danger form-danger"
+      role="alert"></span>
+
+  </div>
+  <div class="flex-container">
+    <label for="last-name" class="flex-header ">Down payment: </label>
+    <input id="downPaymentPercentage" type="text" formControlName="downPaymentPercentage">
+    <input id="downPaymentAmount" type="text" formControlName="downPaymentAmount">
+    <span *ngIf="mortgageCalculatorForm.controls.downPaymentPercentage.invalid" class="alert alert-danger form-danger"
+      role="alert">Error </span>
+  </div>
+
+  <div class="flex-container">
+    <label class="flex-header ">Loan Term </label>
+    <select id="loanTerm" formControlName="loanTerm">
+      <option *ngFor="let loanTerm of loanTermList" [ngValue]="loanTerm">{{ loanTerm }}</option>
+    </select>
+  </div>
+
+  <div class="flex-container">
+    <label for="interestRate" class="flex-header "> Interset Rate </label>
+    <input type="interestRate" formControlName="interestRate">
+  </div>
+
+  <hr>
+  <br>
+  <h2>Monthly Payment</h2>
+  <label> Monthly Payment</label> <span> {{monthlyPayment}}</span>
+
+</form>
